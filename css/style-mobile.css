@@ -242,21 +242,21 @@
 			}
 
 /*********************************************************************************/
-/* Banner                                                                        */
+/* haiku4u                                                                       */
 /*********************************************************************************/
 
-	#banner
+	#haiku4u
 	{
 		padding: 3em 2em 3em 2em;
 		background-size: auto 150%;
 	}
 
-		#banner header
+		#haiku4u header
 		{
 			margin: 0 0 1em 0;
 		}
 		
-			#banner header h2
+			#haiku4u header h2
 			{
 				font-size: 1.5em;
 				letter-spacing: 6px;

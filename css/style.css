@@ -843,10 +843,10 @@
 			}
 	
 /*********************************************************************************/
-/* Banner                                                                        */
+/* haiku4u                                                                        */
 /*********************************************************************************/
 
-	#banner
+	#haiku4u
 	{
 		position: relative;
 		color: #fff;
@@ -858,41 +858,41 @@
 		background-size: 125% auto;
 	}
 
-		#banner .button
+		#haiku4u .button
 		{
 			color: #35b882;
 			text-shadow: 0 0 0.5px rgba(53,184,130,0.25);
 		}
 
-		#banner header
+		#haiku4u header
 		{
 			margin: 0 0 2em 0;
 		}
 		
-			#banner header h2
+			#haiku4u header h2
 			{
 				font-weight: 400;
 				font-size: 1.75em;
 				letter-spacing: 8px;
 			}
 
-		#banner p
+		#haiku4u p
 		{
 			margin: 0;
 		}
 
-		#banner footer
+		#haiku4u footer
 		{
 			margin: 2em 0 0 0;
 		}
 		
-		#banner a
+		#haiku4u a
 		{
 			color: inherit;
 			border-bottom-color: rgba(255,255,255,0.5);
 		}
 		
-			#banner a:hover
+			#haiku4u a:hover
 			{
 				border-bottom-color: rgba(255,255,255,0);
 			}
