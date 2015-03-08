@@ -29,7 +29,7 @@ def updateInnerHtml():
     test = re.compile(pattern)
     c = 0
     replStr1 = replStr2 = replStr3 = ''
-    stringOne = stringTwo = string3 = ''
+    stringOne = stringTwo = stringThree = ''
     for line in activeFile:
         t = test.match(line)
         if t:
@@ -107,3 +107,4 @@ def tweet():
     return
 
 updateInnerHtml()
+tweet()
