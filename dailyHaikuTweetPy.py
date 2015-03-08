@@ -25,6 +25,7 @@ class MyHTMLParser(HTMLParser):
         print "End Tag: ",tag
     def handle_data(self,data):
         print "Data: ",data
+        return data
     def handle_comment(self,comment):
         print "Comment: ",comment
     def handle_entityref(self,name):
@@ -44,8 +45,15 @@ def updateInnerHtml():
     activeFile=open("/Users/Admin/Documents/GitHub_Projects/ThisGuyRB.github.io/index.html","r+")
     parser= MyHTMLParser()
     
+    test = '<p id="haikuP">'    
+    string = ''
     for line in activeFile:
-        parser.feed(line)
+        if line == test:
+            string = parser.feed(line)
+            print string
+            
+    print string
+        
         
     
     #archiveFile.close()
