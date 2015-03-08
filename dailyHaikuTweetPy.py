@@ -22,11 +22,14 @@ aTSec = "RDPzzh5WiN0h19D3l4zr2uLw3u8nS4dPe88MIFfO3kViW"
 def updateInnerHtml():
     archiveFile=open("/Users/Admin/Documents/GitHub_Projects/dailyHaikuArchive/index.html","ab")
     activeFile=open("/Users/Admin/Documents/GitHub_Projects/ThisGuyRB.github.io/index.html","r+")
+    activeFilePath = "/Users/Admin/Documents/GitHub_Projects/ThisGuyRB.github.io/index.html"
     newHaikuFile=open("/Users/Admin/Documents/GitHub_Projects/haiku.txt","r")
     
     pattern = '\s*<p\s*id="haikuP"\s*>'
     test = re.compile(pattern)
     c = 0
+    replStr1 = replStr2 = replStr3 = ''
+    stringOne = stringTwo = string3 = ''
     for line in activeFile:
         t = test.match(line)
         if t:
@@ -38,26 +41,30 @@ def updateInnerHtml():
             if c ==3:
                 stringOne = str(line)
                 archWrite(archiveFile,stringOne,'i')
-                replStr = newHaikuFile.readline()
-                print replStr
+                replStr1 = newHaikuFile.readline()
+                print replStr1
                 c = c-1
                 continue
             if c == 2:
                 stringTwo = str(line)
                 archWrite(archiveFile,stringTwo,'t')
-                replStr = newHaikuFile.readline()
-                print replStr
+                replStr2 = newHaikuFile.readline()
+                print replStr2
                 c = c-1
                 continue
             if c == 1:
                 stringThree = str(line)
                 archWrite(archiveFile,stringThree,'f')
-                replStr = newHaikuFile.readline()
-                print replStr
+                replStr3 = newHaikuFile.readline()
+                print replStr3
                 break
 
     archiveFile.close()
     activeFile.close()
+    
+    replace(activeFilePath,stringOne,replStr1)
+    replace(activeFilePath,stringTwo,replStr2)
+    replace(activeFilePath,stringThree,replStr3)
     return
 
 def replace(file_path, pattern, subst):
