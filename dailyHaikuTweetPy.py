@@ -4,9 +4,10 @@ Created on Sat Mar  7 15:44:34 2015
 
 @author: Roger Barker
 """
-
+#test
 
 import tweepy
+import time
 import re
 from tempfile import mkstemp
 from shutil import move
@@ -19,7 +20,7 @@ aTSec = "RDPzzh5WiN0h19D3l4zr2uLw3u8nS4dPe88MIFfO3kViW"
 
 
 def updateInnerHtml():
-    archiveFile=open("/Users/Admin/Documents/GitHub_Projects/dailyHaikuArchive/index.html","r+")
+    archiveFile=open("/Users/Admin/Documents/GitHub_Projects/dailyHaikuArchive/index.html","ab")
     activeFile=open("/Users/Admin/Documents/GitHub_Projects/ThisGuyRB.github.io/index.html","r+")
     newHaikuFile=open("/Users/Admin/Documents/GitHub_Projects/haiku.txt","r")
     
@@ -33,24 +34,28 @@ def updateInnerHtml():
             print line
             c = 3
             continue
-        if c ==3:
-            stringOne = str(line)
-            archWrite(archiveFile,stringOne,'i')
-            replStr = newHaikuFile.readline()
-            print replStr
-            c = c-1
-        if c == 2:
-            stringTwo = str(line)
-            archWrite(archiveFile,stringTwo,'t')
-            replStr = newHaikuFile.readline()
-            print replStr
-            c = c-1
-        if c == 1:
-            stringThree = str(line)
-            archWrite(archiveFile,stringThree,'f')
-            replStr = newHaikuFile.readline()
-            print replStr
-            break
+        else:
+            if c ==3:
+                stringOne = str(line)
+                archWrite(archiveFile,stringOne,'i')
+                replStr = newHaikuFile.readline()
+                print replStr
+                c = c-1
+                continue
+            if c == 2:
+                stringTwo = str(line)
+                archWrite(archiveFile,stringTwo,'t')
+                replStr = newHaikuFile.readline()
+                print replStr
+                c = c-1
+                continue
+            if c == 1:
+                stringThree = str(line)
+                archWrite(archiveFile,stringThree,'f')
+                replStr = newHaikuFile.readline()
+                print replStr
+                break
+
     archiveFile.close()
     activeFile.close()
     return
@@ -72,10 +77,12 @@ def replace(file_path, pattern, subst):
 def archWrite(f,s,ind):
     #if initial print start tag
     if ind=='i':
-        f.write('<p>\n')
+        dateStr = '<!-- ' + time.strftime("%m/%d/%Y") + ' -->'
+        f.write('\n\n'+dateStr)
+        f.write('\n<p>\n')
     
     #write the line    
-    f.write(s)
+    f.writelines(s)
     
     #if final print close tag
     if ind == 'f':
