@@ -96,7 +96,7 @@ def archWrite(f,s,ind):
         f.write('\n</p>\n')
 
 def tweet():
-    statObj='Check out the Daily Haiku at http://bit.ly/1Bir5Rf #haiku4u'
+    statObj='Check out my random Haiku at http://bit.ly/1Bir5Rf #haiku4u'
         
     auth = tweepy.OAuthHandler(oauth_consumer_key,cSec)
     auth.set_access_token(oauth_token,aTSec)
